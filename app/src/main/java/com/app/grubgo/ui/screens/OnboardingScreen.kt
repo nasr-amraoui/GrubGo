@@ -17,8 +17,7 @@ import com.app.grubgo.ui.components.SecondOnboardingPage
 fun OnboardingScreen(
     currentPage: Int,
     onNextPage: () -> Unit,
-    onSkip: () -> Unit,
-    onFinish: () -> Unit
+    onSkip: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -47,7 +46,9 @@ fun OnboardingScreen(
             )
             1 -> SecondOnboardingPage(
                 modifier = Modifier.padding(paddingValues),
-                onFinish = onFinish
+                onConnectWithGoogle = { /* Connect with Google logic */ },
+                onLogin = { /* Navigate to login screen */ },
+                onCreateAccount = onNextPage
             )
         }
     }
@@ -59,8 +60,7 @@ fun OnboardingScreenPreview() {
     OnboardingScreen(
         currentPage = 0,
         onNextPage = {},
-        onSkip = {},
-        onFinish = {}
+        onSkip = {}
     )
 }
 
