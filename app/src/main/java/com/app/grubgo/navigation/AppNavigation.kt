@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.app.grubgo.ui.screens.HomeScreen
+import com.app.grubgo.ui.screens.FoodDeliveryApp
 import com.app.grubgo.ui.screens.OnboardingScreen
 import com.app.grubgo.ui.viewmodel.OnboardingViewModel
 
@@ -31,18 +31,12 @@ fun AppNavigation(
                     navController.navigate(Routes.HOME) {
                         popUpTo(Routes.ONBOARDING) { inclusive = true }
                     }
-                },
-                onFinish = {
-                    onboardingViewModel.completeOnboarding()
-                    navController.navigate(Routes.HOME) {
-                        popUpTo(Routes.ONBOARDING) { inclusive = true }
-                    }
                 }
             )
         }
 
         composable(Routes.HOME) {
-            HomeScreen()
+            FoodDeliveryApp()
         }
     }
 }

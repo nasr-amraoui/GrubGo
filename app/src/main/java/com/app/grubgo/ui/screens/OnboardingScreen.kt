@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import com.app.grubgo.R
 import com.app.grubgo.ui.components.FirstOnboardingPage
 import com.app.grubgo.ui.components.SecondOnboardingPage
+import com.app.grubgo.ui.theme.main_color
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -24,14 +25,17 @@ fun OnboardingScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Image(
-                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        painter = painterResource(id = R.drawable.logo),
                         contentDescription = "Logo",
                         modifier = Modifier.height(40.dp)
                     )
                 },
                 actions = {
                     TextButton(onClick = onSkip) {
-                        Text("Passer")
+                        Text(
+                            text = "Passer",
+                            color = main_color
+                        )
                     }
                 }
             )
@@ -63,4 +67,3 @@ fun OnboardingScreenPreview() {
         onSkip = {}
     )
 }
-

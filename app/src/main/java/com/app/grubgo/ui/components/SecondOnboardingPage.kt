@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -20,9 +20,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import com.app.grubgo.R
+import com.app.grubgo.ui.theme.main_color
 
 @Composable
 fun SecondOnboardingPage(
@@ -41,27 +43,20 @@ fun SecondOnboardingPage(
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Bienvenue dans notre application",
+            text = "Bienvenue dans le monde délicieux SiFood, où chaque plat raconte une histoire",
             style = MaterialTheme.typography.headlineMedium,
+            color = Color.Black,
             textAlign = TextAlign.Center
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Text(
-            text = "Découvrez toutes nos fonctionnalités et commencez dès maintenant",
-            style = MaterialTheme.typography.bodyLarge,
-            textAlign = TextAlign.Center
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_background), // image 1
+            painter = painterResource(id = R.drawable.onboarding_img_two), // image 1
             contentDescription = "Onboarding Image",
             modifier = Modifier
                 .weight(1f)
-                .padding(16.dp)
+                .padding(26.dp)
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -71,7 +66,7 @@ fun SecondOnboardingPage(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp),
-            colors = ButtonDefaults.buttonColors(
+            colors = buttonColors(
                 containerColor = MaterialTheme.colorScheme.surface,
                 contentColor = MaterialTheme.colorScheme.onSurface
             )
@@ -81,11 +76,11 @@ fun SecondOnboardingPage(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.ic_launcher_foreground), // google logo
+                    painter = painterResource(id = R.drawable.google),
                     contentDescription = "Google Logo",
                     modifier = Modifier.size(24.dp)
                 )
-                Text("Se connecter avec Google")
+                Text("Connexion avec Google")
             }
         }
 
@@ -93,7 +88,8 @@ fun SecondOnboardingPage(
             onClick = onLogin,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 8.dp)
+                .padding(vertical = 8.dp),
+            colors = buttonColors(colorResource(id = R.color.main_color))
         ) {
             Text("Se connecter")
         }
@@ -104,7 +100,10 @@ fun SecondOnboardingPage(
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         ) {
-            Text("Créer un compte")
+            Text(
+                text = "Créer un compte",
+                color = main_color
+            )
         }
     }
 }
