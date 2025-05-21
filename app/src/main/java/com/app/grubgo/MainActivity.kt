@@ -3,6 +3,9 @@ package com.app.grubgo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import com.app.grubgo.navigation.AppNavigation
 import com.app.grubgo.ui.theme.GrubGoTheme
 
 class MainActivity : ComponentActivity() {
@@ -10,7 +13,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             GrubGoTheme {
-
+                Surface(
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    AppNavigation()
+                }
             }
         }
     }
